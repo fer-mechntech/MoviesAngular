@@ -1,0 +1,17 @@
+<!-- <mat-tab-group mat-align-tabs="center" class="bg-secondary">    
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon aria-hidden="false" aria-label="Home" fontIcon="home"></mat-icon>
+          </ng-template>        
+    </mat-tab>
+    <mat-tab label="Movies"></mat-tab>
+    <mat-tab label="Contact"></mat-tab>
+</mat-tab-group> -->
+<nav mat-tab-nav-bar mat-align-tabs="center"  [tabPanel]="tabPanel" class="bg-secondary">
+    <a mat-tab-link *ngFor="let link of links"
+        (click)="changeView(link)"
+        [active]="activeLink == link"> {{link}} 
+        <mat-icon *ngIf="link == ''" aria-hidden="false" aria-label="Home" fontIcon="home"></mat-icon>
+    </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

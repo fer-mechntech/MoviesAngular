@@ -1,0 +1,38 @@
+<div class="divForm">
+    <form [formGroup]="form" fxLayout="column">
+        <mat-form-field class="example-form-field mb-3">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" pattern="[a-zA-Z ]*" placeholder="Insert your name" class="text-white">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="name.hasError('pattern') && (name?.dirty || name?.touched)">Only letters are allowed</mat-error> 
+            <mat-error *ngIf="name?.hasError('required') && (name?.dirty || name?.touched)">Name required</mat-error>             
+        </mat-form-field>
+        <mat-form-field class="example-form-field mb-3">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Insert your email: example@email.com" class="text-white">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="email?.hasError('required') && (email?.dirty || email?.touched)">Email required</mat-error>        
+            <mat-error *ngIf="email?.hasError('email') && (email?.dirty || email?.touched)">It's not a valid email</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-form-field mb-3">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" maxlength="10" pattern="[1-9]*" placeholder="Insert your phone number 10 digits" class="text-white">
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="phone?.hasError('minlength') && (phone?.dirty || phone?.touched)">Min length is 10</mat-error>  
+            <mat-error *ngIf="phone?.hasError('pattern') && (phone?.dirty || phone?.touched)">Only numbers are allowed</mat-error>        
+            <mat-error *ngIf="phone?.hasError('required') && (phone?.dirty || phone?.touched)">Phone required</mat-error>             
+        </mat-form-field>
+        <mat-form-field hintLabel="Max 40 characters" class=" mb-3">
+            <mat-label>Message</mat-label>
+            <input matInput #input formControlName="message" maxlength="40" placeholder="Write a message" class="text-white">
+            <mat-icon matSuffix>comment</mat-icon>
+            <mat-hint align="end">{{input.value.length}}/40</mat-hint>
+            <mat-error *ngIf="message?.hasError('required') && (message?.dirty || message?.touched)">Message required</mat-error>          
+          </mat-form-field>
+
+        <button mat-button (click)="onSend()" class="mb-2 text-white" style="background: #c2185ba3  !important;">
+            Send
+        </button>
+        <button mat-button routerLink="" style="border:2px solid #c2185ba3; color: #c2185b">Cancelar</button>
+    </form>
+</div>

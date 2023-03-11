@@ -1,0 +1,30 @@
+/* Structure */
+.example-container {
+    position: relative;
+  }
+  
+  .example-table-container {
+    position: relative;
+    min-height: calc(100vh - 170px);
+    max-height: calc(100vh - 170px);
+    overflow: auto;
+  }
+
+  .mat-header-cell{
+    color: #c2185b !important;
+    font-weight: 800 !important;
+    font-size: 1.5rem;
+  }
+
+.mat-column-title {
+  width: 40% !important;
+}
+.mat-column-year {
+    width: 10% !important;
+}
+.mat-column-cast {
+    width: 30% !important;
+}
+.mat-column-genres {
+    width: 20% !important;
+}
